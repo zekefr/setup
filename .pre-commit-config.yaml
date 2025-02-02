@@ -1,0 +1,17 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: 5.0.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: traling-whitespace
+
+  - repo: local
+    hooks:
+      - id: ansible-lint
+        verbose: true
+        name: Ansible lint
+        files: ^(roles)/.*\.(ya?ml)$
+        types: [file, yaml]
+        entry: ansible-lint
+        language: system
