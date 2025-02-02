@@ -6,3 +6,4 @@
     upgrade: dist
     autoremove: true
     update_cache: true
+

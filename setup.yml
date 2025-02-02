@@ -1,7 +1,6 @@
 ---
 - name: Install the setup
   hosts: localhost
-  gather_facts: true
   become: true
   roles:
     - setup
