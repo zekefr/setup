@@ -1,0 +1,8 @@
+# main tasks for setup
+
+- name: Upgrade distribution packages
+  ansible.builtin.apt:
+    state: latest
+    upgrade: dist
+    autoremove: true
+    update_cache: true
