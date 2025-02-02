@@ -1,10 +1,10 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: 5.0.0
+    rev: v5.0.0
     hooks:
       - id: check-yaml
       - id: end-of-file-fixer
-      - id: traling-whitespace
+      - id: trailing-whitespace
 
   - repo: local
     hooks:
