@@ -11,7 +11,7 @@ Follow [How to install Linux on Windows with WSL](https://learn.microsoft.com/en
 
 ## Windows Terminal
 Follow [Installing and running Windows Terminal](https://github.com/microsoft/terminal?tab=readme-ov-file#installing-and-running-windows-terminal)\
-Windows terminal settings: [settings.json](windows-terminal/settings.json)/
+Windows terminal settings: [settings.json](windows-terminal/settings.json)\
 **Warning**: Don’t blindly copy the settings.json / adapt yours!
 
 ## Fonts
@@ -23,7 +23,7 @@ For windows installation:
 
 ## Ansible
 For having multiple [Ansible versions](https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html), I prefer working with [python virtual environments](https://docs.python.org/3/library/venv.html).\
-You can adapt or use your own requirements files.\
+You can adapt or use your own requirements files.
 
 ```bash
 sudo apt install python3.12-venv
