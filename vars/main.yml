@@ -1,0 +1,12 @@
+---
+# vars file for setup
+setup_packages:
+  - git
+  - gh
+  - htop
+  - telnet
+  - unzip
+  - curl
+  - wget
+  - jq
+  - ftp

@@ -11,7 +11,7 @@ repos:
       - id: ansible-lint
         verbose: true
         name: Ansible lint
-        files: ^(roles)/.*\.(ya?ml)$
+        files: ^(roles|vars)/.*\.(ya?ml)$
         types: [file, yaml]
         entry: ansible-lint
         language: system
