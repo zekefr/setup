@@ -36,8 +36,7 @@ pip install -r ansible2.18_requirements.txt
 We will later use fish shell, in that case source file to activate is **activate.fish**.
 
 ## Installation
-You can modify your sudoers configuration file to avoid providing the become password or use **--ask-become-pass** option.\
-Use **--tags** to run specific parts of the setup.\
+You can modify your sudoers configuration file to avoid providing the become password or use **--ask-become-pass** option. You can also use **--tags** to run specific parts of the setup.
 
 Available tags:
 - packages
