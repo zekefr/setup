@@ -1,6 +1,12 @@
 ---
 # main tasks for setup
 
+- name: Add PPA repositories
+  ansible.builtin.apt_repository:
+    repo: "ppa:{{ item }}"
+    state: present
+  loop: "{{ setup_repositories }}"
+
 - name: Install apt packages
   ansible.builtin.apt:
     name: "{{ setup_packages }}"

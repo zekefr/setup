@@ -1,5 +1,6 @@
 ---
 # vars file for setup
+
 setup_packages:
   - git
   - gh
@@ -10,3 +11,7 @@ setup_packages:
   - wget
   - jq
   - ftp
+  - fish
+
+setup_repositories:
+  - fish-shell/release-3
