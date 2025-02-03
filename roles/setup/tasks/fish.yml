@@ -6,6 +6,8 @@
     url: https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish
     dest: /tmp/fisher.fish
     mode: '0755'
+  tags:
+    - fish_config
 
 - name: Install fisher plugin manager
   ansible.builtin.shell: |
@@ -15,6 +17,8 @@
   changed_when: true
   args:
     executable: /usr/bin/fish
+  tags:
+    - fish_config
 
 - name: Install fish plugins
   ansible.builtin.shell: fish -c "fisher install {{ item }}"
@@ -23,6 +27,8 @@
   changed_when: true
   args:
     executable: /usr/bin/fish
+  tags:
+    - fish_config
 
 - name: Configure tide
   ansible.builtin.shell: |
@@ -33,3 +39,5 @@
   changed_when: true
   args:
     executable: /usr/bin/fish
+  tags:
+    - fish_config

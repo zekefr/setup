@@ -6,9 +6,13 @@
     repo: "ppa:{{ item }}"
     state: present
   loop: "{{ setup_repositories }}"
+  tags:
+    - packages
 
 - name: Install apt packages
   ansible.builtin.apt:
     name: "{{ setup_packages }}"
     state: present
     update_cache: true
+  tags:
+    - packages
