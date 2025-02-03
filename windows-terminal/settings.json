@@ -1,10 +1,10 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
+    "actions":
     [
         {
-            "command": 
+            "command":
             {
                 "action": "copy",
                 "singleLine": false
@@ -23,7 +23,7 @@
             "keys": "ctrl+shift+f"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "auto",
@@ -38,21 +38,22 @@
     "defaultProfile": "{963ff2f7-6aed-5ce3-9d91-90d99571f53a}",
     "focusFollowMouse": false,
     "launchMode": "maximized",
-    "newTabMenu": 
+    "newTabMenu":
     [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": 
+    "profiles":
     {
         "defaults": {},
-        "list": 
+        "list":
         [
             {
                 "backgroundImageOpacity": 0.1,
                 "colorScheme": "One Half Dark",
-                "font": 
+                "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Ubuntu-24.04 -e bash -c \"fish\"",
+		"font":
                 {
                     "face": "Hack Nerd Font",
                     "size": 10,
