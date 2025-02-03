@@ -23,7 +23,7 @@ For windows installation:
 
 ## Ansible
 For having multiple [Ansible versions](https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html), I prefer working with [python virtual environments](https://docs.python.org/3/library/venv.html).\
-You can adapt or use your own requirements files. Also using python3.12 (shipped with the Ubuntu 24.04).
+You can adapt or use your own requirements files. Here is an example with python3.12 (shipped with the Ubuntu 24.04) and Ansible 11 (core 2.18).
 
 ```bash
 sudo apt install python3.12-venv
@@ -34,3 +34,10 @@ pip install -r ansible2.18_requirements.txt
 ```
 
 We will later use fish shell, in that case source file to activate is **activate.fish**.
+
+## Shell setup
+
+- [fish shell](https://github.com/fish-shell/fish-shell)
+- [fisher](https://github.com/jorgebucaran/fisher) - Plugin manager for fish
+- [tide](https://github.com/IlanCosman/tide) - Prompt fish theme
+- [z](https://github.com/jethrokuan/z) - Directory jumper

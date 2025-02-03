@@ -15,3 +15,7 @@ setup_packages:
 
 setup_repositories:
   - fish-shell/release-3
+
+setup_fisher_plugins:
+  - IlanCosman/tide@v6
+  - jethrokuan/z

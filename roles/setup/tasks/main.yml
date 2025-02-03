@@ -1,14 +1,12 @@
 ---
 # main tasks for setup
 
-- name: Add PPA repositories
-  ansible.builtin.apt_repository:
-    repo: "ppa:{{ item }}"
-    state: present
-  loop: "{{ setup_repositories }}"
+- name: Include packages
+  ansible.builtin.include_tasks: packages.yml
+  tags:
+    - packages
 
-- name: Install apt packages
-  ansible.builtin.apt:
-    name: "{{ setup_packages }}"
-    state: present
-    update_cache: true
+- name: Include fish shell configuration
+  ansible.builtin.include_tasks: fish.yml
+  tags:
+    - fish_config
