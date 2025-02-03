@@ -41,3 +41,4 @@ We will later use fish shell, in that case source file to activate is **activate
 - [fisher](https://github.com/jorgebucaran/fisher) - Plugin manager for fish
 - [tide](https://github.com/IlanCosman/tide) - Prompt fish theme
 - [z](https://github.com/jethrokuan/z) - Directory jumper
+- [eza](https://github.com/eza-community/eza) with [fish-exa](https://github.com/gazorby/fish-exa) - Modern ls replacement

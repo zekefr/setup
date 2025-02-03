@@ -12,6 +12,7 @@ setup_packages:
   - jq
   - ftp
   - fish
+  - eza
 
 setup_repositories:
   - fish-shell/release-3
@@ -19,3 +20,4 @@ setup_repositories:
 setup_fisher_plugins:
   - IlanCosman/tide@v6
   - jethrokuan/z
+  - gazorby/fish-exa
