@@ -35,6 +35,13 @@ pip install -r ansible2.18_requirements.txt
 
 We will later use fish shell, in that case source file to activate is **activate.fish**.
 
+## Installation
+You can modify your sudoers configuration file to avoid providing the become password.\
+
+```bash
+ansible-playbook setup.yml
+```
+
 ## Shell setup
 
 - [fish shell](https://github.com/fish-shell/fish-shell)
