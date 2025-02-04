@@ -1,6 +1,22 @@
 ---
 # fish configuration tasks for setup
 
+- name: Add PPA repositories
+  ansible.builtin.apt_repository:
+    repo: "ppa:{{ item }}"
+    state: present
+  loop: "{{ setup_fish_repositories }}"
+  tags:
+    - fish_config
+
+- name: Install apt packages
+  ansible.builtin.apt:
+    name: "{{ setup_fish_packages }}"
+    state: present
+    update_cache: true
+  tags:
+    - fish_config
+
 - name: Download fisher installation script
   ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish

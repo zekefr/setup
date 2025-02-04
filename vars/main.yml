@@ -1,7 +1,7 @@
 ---
 # vars file for setup
 
-setup_packages:
+setup_standard_packages:
   - git
   - gh
   - htop
@@ -11,10 +11,12 @@ setup_packages:
   - wget
   - jq
   - ftp
+
+setup_fish_packages:
   - fish
   - eza
 
-setup_repositories:
+setup_fish_repositories:
   - fish-shell/release-3
 
 setup_fisher_plugins:

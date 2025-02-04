@@ -1,12 +1,12 @@
 ---
 # main tasks for setup
 
-- name: Include packages
+- name: Include standard packages
   ansible.builtin.include_tasks: packages.yml
   tags:
     - packages
 
-- name: Include fish shell configuration
+- name: Include fish shell
   ansible.builtin.include_tasks: fish.yml
   tags:
     - fish_config
