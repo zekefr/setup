@@ -1,7 +1,7 @@
 ---
-# packages tasks for setup
+# standard packages tasks for setup
 
-- name: Install apt packages
+- name: Install apt standard packages
   ansible.builtin.apt:
     name: "{{ setup_standard_packages }}"
     state: present

@@ -10,3 +10,8 @@
   ansible.builtin.include_tasks: fish.yml
   tags:
     - fish_config
+
+- name: Include docker
+  ansible.builtin.include_tasks: docker.yml
+  tags:
+    - docker

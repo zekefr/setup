@@ -7,7 +7,6 @@ setup_standard_packages:
   - htop
   - telnet
   - unzip
-  - curl
   - wget
   - jq
   - ftp
@@ -23,3 +22,15 @@ setup_fisher_plugins:
   - IlanCosman/tide@v6
   - jethrokuan/z
   - gazorby/fish-exa
+
+setup_docker_required_packages:
+  - ca-certificates
+  - curl
+  - apt-transport-https
+  - gnupg
+  - software-properties-common
+
+setup_docker_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io

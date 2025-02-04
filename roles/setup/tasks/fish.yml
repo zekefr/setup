@@ -1,5 +1,5 @@
 ---
-# fish configuration tasks for setup
+# fish shell tasks for setup
 
 - name: Add PPA repositories
   ansible.builtin.apt_repository:
