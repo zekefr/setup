@@ -15,3 +15,8 @@
   ansible.builtin.include_tasks: docker.yml
   tags:
     - docker
+
+- name: Include python
+  ansible.builtin.include_tasks: python.yml
+  tags:
+    - python
