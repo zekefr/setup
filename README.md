@@ -27,7 +27,7 @@ You can adapt or use your own requirements files. Here is an example with python
 
 ```bash
 sudo apt install python3.12-venv
-mkdir ~/python_venv/Ansible2.18
+mkdir -p ~/python_venv/Ansible2.18
 python3 -m venv ~/python_venv/Ansible2.18/
 source ~/python_venv/Ansible2.18/bin/activate
 pip install -r ansible2.18_requirements.txt
