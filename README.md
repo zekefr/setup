@@ -94,9 +94,15 @@ ansible-playbook setup.yml --tags packages
 ---
 
 ## 📦 What’s Installed and Configured
+This Ansible setup will automatically install and configure the following:
 
-- [fish shell](https://github.com/fish-shell/fish-shell)
-- [fisher](https://github.com/jorgebucaran/fisher) - Plugin manager for fish
-- [tide](https://github.com/IlanCosman/tide) - Prompt fish theme
-- [z](https://github.com/jethrokuan/z) - Directory jumper
-- [eza](https://github.com/eza-community/eza) with [fish-exa](https://github.com/gazorby/fish-exa) - Modern ls replacement
+- **Linux packages**
+  Essential tools and utilities to get your environment ready.
+
+- **Fish shell with tide and plugins**
+  Preferred interactive shell with useful plugins via Fisher.
+  - [fish shell](https://github.com/fish-shell/fish-shell)
+  - [fisher](https://github.com/jorgebucaran/fisher) - Plugin manager for fish
+  - [tide](https://github.com/IlanCosman/tide) - Prompt fish theme
+  - [z](https://github.com/jethrokuan/z) - Directory jumper
+  - [eza](https://github.com/eza-community/eza) with [fish-exa](https://github.com/gazorby/fish-exa) - Modern ls replacement
