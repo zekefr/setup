@@ -62,18 +62,38 @@ pip install -r requirements.txt
 
 We will later use fish shell, in that case source file to activate is **activate.fish**.
 
-## Installation
-You can modify your sudoers configuration file to avoid providing the become password or use **--ask-become-pass** option. You can also use **--tags** to run specific parts of the setup.
+---
 
-Available tags:
-- packages
-- fish_config
+## 🚀 Usage
+You can run the full playbook to configure your environment:
 
 ```bash
 ansible-playbook setup.yml
 ```
 
-## Shell setup
+If your `sudo` requires a password, either:
+- Modify your sudoers configuration to skip asking for it
+- Or use the `--ask-become-pass` option
+
+```bash
+ansible-playbook setup.yml --ask-become-pass
+```
+
+You can also run only specific parts of the setup using **--tags**.
+
+Available tags:
+- `packages`
+- `fish_config`
+
+For example, to only install packages:
+
+```bash
+ansible-playbook setup.yml --tags packages
+```
+
+---
+
+## 📦 What’s Installed and Configured
 
 - [fish shell](https://github.com/fish-shell/fish-shell)
 - [fisher](https://github.com/jorgebucaran/fisher) - Plugin manager for fish
