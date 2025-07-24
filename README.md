@@ -1,9 +1,9 @@
 # 🛠️ Setup
 [![OS](https://img.shields.io/badge/OS-Ubuntu%2024.04%20LTS-orange?logo=ubuntu)](https://releases.ubuntu.com/noble/)
 [![Terminal](https://img.shields.io/badge/🖥️-Windows%20Terminal-4D4D4D?logo=windows)](https://github.com/microsoft/terminal)
-[![WSL2](https://img.shields.io/badge/🐧WSL2-Enabled-blue?logo=windows)](https://learn.microsoft.com/en-us/windows/wsl/)
-[![Fonts](https://img.shields.io/badge/🔤Font-Hack%20Nerd%20Font-96231A?logo=nerdfonts)](https://github.com/ryanoasis/nerd-fonts)
-[![Shell](https://img.shields.io/badge/🐟Shell-Fish-4C9141?logo=fish)](https://fishshell.com/)
+[![WSL2](https://img.shields.io/badge/🐧-WSL2-Enabled-blue?logo=windows)](https://learn.microsoft.com/en-us/windows/wsl/)
+[![Fonts](https://img.shields.io/badge/🔤-Font-Hack%20Nerd%20Font-96231A?logo=nerdfonts)](https://github.com/ryanoasis/nerd-fonts)
+[![Shell](https://img.shields.io/badge/🐟-Shell-Fish-4C9141?logo=fish)](https://fishshell.com/)
 [![Automation](https://img.shields.io/badge/Ansible-Role-000000?logo=ansible)](https://www.ansible.com/)
 
 My personal WSL2 setup as an SRE/DevOps Engineer, automated with **Ansible**.
