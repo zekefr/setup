@@ -14,7 +14,7 @@ My personal WSL2 setup as an SRE/DevOps Engineer, automated with **Ansible**.
 Before running the Ansible role, set up the following on your Windows machine:
 
 ### 🐧 WSL2
-Follow the official guide:  
+Follow the official guide:
 👉 [How to install Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
 
 Using:
@@ -22,7 +22,7 @@ Using:
 - [Ubuntu 24.04 LTS (Noble Numbat)](https://releases.ubuntu.com/noble/)
 
 ### 🖥️ Windows Terminal
-Install instructions:  
+Install instructions:
 👉 [Installing and running Windows Terminal](https://github.com/microsoft/terminal?tab=readme-ov-file#installing-and-running-windows-terminal)
 
 Optional customization:  
@@ -37,19 +37,27 @@ For Windows installation:
 1. Install [Scoop](https://github.com/ScoopInstaller/Scoop)
 2. Follow 👉 [Option 3: Unofficial Chocolatey or Scoop Repositories](https://github.com/ryanoasis/nerd-fonts?tab=readme-ov-file#option-3-unofficial-chocolatey-or-scoop-repositories)
 
----
+### ⚙️ Ansible
+This setup uses [Ansible](https://www.ansible.com/) to automate environment configuration.
+To keep it clean and easily manage multiple Ansible versions, use a [python virtual environments](https://docs.python.org/3/library/venv.html) inside the cloned repo.
+I am using Python 3.12 (shipped with Ubuntu 24.04) and Ansible 11 (core 2.18)
 
+#### Steps
 
-## Ansible
-For having multiple [Ansible versions](https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html), I prefer working with [python virtual environments](https://docs.python.org/3/library/venv.html).\
-You can adapt or use your own requirements files. Here is an example with python3.12 (shipped with the Ubuntu 24.04) and Ansible 11 (core 2.18).
+Clone this repository first:
+
+```bash
+git clone https://github.com/zekefr/setup.git
+cd setup
+```
+
+Create the virtual environment and install Ansible:
 
 ```bash
 sudo apt install python3.12-venv
-mkdir -p ~/python_venv/Ansible2.18
-python3 -m venv ~/python_venv/Ansible2.18/
-source ~/python_venv/Ansible2.18/bin/activate
-pip install -r ansible2.18_requirements.txt
+python3.12 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 We will later use fish shell, in that case source file to activate is **activate.fish**.
