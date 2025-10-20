@@ -25,7 +25,7 @@ Using:
 Install instructions:
 👉 [Installing and running Windows Terminal](https://github.com/microsoft/terminal?tab=readme-ov-file#installing-and-running-windows-terminal)
 
-Optional customization:  
+Optional customization:
 - Check out my [settings.json](windows-terminal/settings.json)
 
 ⚠️ **Warning:** Don’t blindly copy the settings — adapt to your own preferences!
@@ -39,8 +39,8 @@ For Windows installation:
 
 ### ⚙️ Ansible
 This setup uses [Ansible](https://www.ansible.com/) to automate environment configuration.
-To keep it clean and easily manage multiple Ansible versions, use a [python virtual environments](https://docs.python.org/3/library/venv.html) inside the cloned repo.
-I am using Python 3.12 (shipped with Ubuntu 24.04) and Ansible 11 (core 2.18)
+To keep it clean and easily manage multiple Ansible versions, use [UV](https://docs.astral.sh/uv/) inside the cloned repo.
+I am using Python 3.13 (shipped with Ubuntu 25.04) and Ansible 12 (core 2.19).
 
 #### Steps
 
@@ -51,13 +51,12 @@ git clone https://github.com/zekefr/setup.git
 cd setup
 ```
 
-Create the virtual environment and install Ansible:
+Install UV and Ansible:
 
 ```bash
-sudo apt install python3.12-venv
-python3.12 -m venv .venv
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv sync
 source .venv/bin/activate
-pip install -r requirements.txt
 ```
 
 We will later use fish shell, in that case source file to activate is **activate.fish**.

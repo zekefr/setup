@@ -1,0 +1,11 @@
+[project]
+name = "setup"
+version = "0.1.0"
+description = "Ansible for setup repositorie"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ansible>=12.1.0",
+    "ansible-lint>=25.9.2",
+    "pre-commit>=4.3.0",
+]
