@@ -83,6 +83,8 @@ You can also run only specific parts of the setup using **--tags**.
 Available tags:
 - `packages`
 - `fish_config`
+- `docker`
+- `python`
 
 For example, to only install packages:
 
@@ -105,3 +107,9 @@ This Ansible setup will automatically install and configure the following:
   - [tide](https://github.com/IlanCosman/tide) - Prompt fish theme
   - [z](https://github.com/jethrokuan/z) - Directory jumper
   - [eza](https://github.com/eza-community/eza) with [fish-exa](https://github.com/gazorby/fish-exa) - Modern ls replacement
+
+- **Docker**
+  Standard docker installation ready to go.
+
+- **Python**
+  Python relatives packages and tools.

@@ -1,59 +1,53 @@
 ---
 # fish shell tasks for setup
 
-- name: Add PPA repositories
-  ansible.builtin.apt_repository:
-    repo: "ppa:{{ item }}"
-    state: present
-  loop: "{{ setup_fish_repositories }}"
+- name: Configure Fish
   tags:
     - fish_config
 
-- name: Install apt packages
-  ansible.builtin.apt:
-    name: "{{ setup_fish_packages }}"
-    state: present
-    update_cache: true
-  tags:
-    - fish_config
+  block:
 
-- name: Download fisher installation script
-  ansible.builtin.get_url:
-    url: https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish
-    dest: /tmp/fisher.fish
-    mode: '0755'
-  tags:
-    - fish_config
+    - name: Add PPA repositories
+      ansible.builtin.apt_repository:
+        repo: "ppa:{{ item }}"
+        state: present
+      loop: "{{ setup_fish_repositories }}"
 
-- name: Install fisher plugin manager
-  ansible.builtin.shell: |
-    source /tmp/fisher.fish
-    fisher install jorgebucaran/fisher
-  become: false
-  changed_when: true
-  args:
-    executable: /usr/bin/fish
-  tags:
-    - fish_config
+    - name: Install apt packages
+      ansible.builtin.apt:
+        name: "{{ setup_fish_packages }}"
+        state: present
+        update_cache: true
 
-- name: Install fish plugins
-  ansible.builtin.shell: fish -c "fisher install {{ item }}"
-  loop: "{{ setup_fisher_plugins }}"
-  become: false
-  changed_when: true
-  args:
-    executable: /usr/bin/fish
-  tags:
-    - fish_config
+    - name: Download fisher installation script
+      ansible.builtin.get_url:
+        url: https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish
+        dest: /tmp/fisher.fish
+        mode: '0755'
 
-- name: Configure tide
-  ansible.builtin.shell: |
-    tide configure --auto --style=Rainbow --prompt_colors='16 colors' --show_time='24-hour format' \
-    --rainbow_prompt_separators=Vertical --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat \
-    --powerline_prompt_style='One line' --prompt_spacing=Sparse --icons='Many icons' --transient=No
-  become: false
-  changed_when: true
-  args:
-    executable: /usr/bin/fish
-  tags:
-    - fish_config
+    - name: Install fisher plugin manager
+      ansible.builtin.shell: |
+        source /tmp/fisher.fish
+        fisher install jorgebucaran/fisher
+      become: false
+      changed_when: true
+      args:
+        executable: /usr/bin/fish
+
+    - name: Install fish plugins
+      ansible.builtin.shell: fish -c "fisher install {{ item }}"
+      loop: "{{ setup_fisher_plugins }}"
+      become: false
+      changed_when: true
+      args:
+        executable: /usr/bin/fish
+
+    - name: Configure tide
+      ansible.builtin.shell: |
+        tide configure --auto --style=Rainbow --prompt_colors='16 colors' --show_time='24-hour format' \
+        --rainbow_prompt_separators=Vertical --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat \
+        --powerline_prompt_style='One line' --prompt_spacing=Sparse --icons='Many icons' --transient=No
+      become: false
+      changed_when: true
+      args:
+        executable: /usr/bin/fish
