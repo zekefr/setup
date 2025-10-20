@@ -30,3 +30,15 @@
         name: "{{ setup_docker_packages }}"
         state: present
         update_cache: true
+
+    - name: Add original (pre-become) user to docker group
+      vars:
+        docker_user: >-
+          {{ ansible_env.SUDO_USER
+            | default(ansible_ssh_user
+            | default(ansible_user
+            | default(ansible_env.USER))) }}
+      ansible.builtin.user:
+        name: "{{ docker_user }}"
+        groups: docker
+        append: true
