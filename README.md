@@ -19,7 +19,7 @@ Follow the official guide:
 
 Using:
 - [WSL2](https://learn.microsoft.com/en-us/windows/wsl/)
-- [Ubuntu 24.04 LTS (Noble Numbat)](https://releases.ubuntu.com/noble/)
+- [Ubuntu 25.04 (Plucky Puffin)](https://releases.ubuntu.com/plucky/)
 
 ### 🖥️ Windows Terminal
 Install instructions:
