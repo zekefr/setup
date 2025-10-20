@@ -11,12 +11,16 @@ setup_standard_packages:
   - jq
   - ftp
 
+setup_fish_packages_required:
+  - ca-certificates
+  - gnupg
+  - dirmngr
+  - curl
+  - software-properties-common
+
 setup_fish_packages:
   - fish
   - eza
-
-setup_fish_repositories:
-  - fish-shell/release-3
 
 setup_fisher_plugins:
   - IlanCosman/tide@v6

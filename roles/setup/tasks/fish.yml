@@ -7,11 +7,41 @@
 
   block:
 
-    - name: Add PPA repositories
-      ansible.builtin.apt_repository:
-        repo: "ppa:{{ item }}"
+    - name: Ensure prerequisites for fish setup
+      ansible.builtin.apt:
+        name: "{{ setup_fish_packages_required }}"
         state: present
-      loop: "{{ setup_fish_repositories }}"
+        update_cache: true
+
+    - name: Fetch fish PPA public key (armored)
+      ansible.builtin.get_url:
+        url: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x88421E703EDC7AF54967DED473C9FCC9E2BB48DA"
+        dest: /usr/share/keyrings/fish-shell-release-4.asc
+        mode: "0644"
+
+    - name: De-armor fish PPA key to system keyring
+      ansible.builtin.command:
+        argv:
+          - gpg
+          - --dearmor
+          - --yes
+          - --output
+          - /usr/share/keyrings/fish-shell-release-4.gpg
+          - /usr/share/keyrings/fish-shell-release-4.asc
+      args:
+        creates: /usr/share/keyrings/fish-shell-release-4.gpg
+
+    # Use deb822 sources OR the classic deb line. Deb822 is preferred on 24.04+
+    - name: Add fish PPA (deb822 sources)
+      ansible.builtin.copy:
+        dest: /etc/apt/sources.list.d/fish-shell-release-4.sources
+        mode: "0644"
+        content: |
+          Types: deb
+          URIs: https://ppa.launchpadcontent.net/fish-shell/release-4/ubuntu
+          Suites: plucky
+          Components: main
+          Signed-By: /usr/share/keyrings/fish-shell-release-4.gpg
 
     - name: Install apt packages
       ansible.builtin.apt:

@@ -1,5 +1,5 @@
 # 🛠️ Setup
-[![OS](https://img.shields.io/badge/OS-Ubuntu%2024.04%20LTS-orange?logo=ubuntu)](https://releases.ubuntu.com/noble/)
+[![OS](https://img.shields.io/badge/OS-Ubuntu%2025.04%20Plucky-orange?logo=ubuntu)](https://releases.ubuntu.com/plucky/)
 [![Terminal](https://img.shields.io/badge/🖥️-Windows%20Terminal-4D4D4D?logo=windows)](https://github.com/microsoft/terminal)
 [![WSL2](https://img.shields.io/badge/🐧-WSL2%20Enabled-blue?logo=windows)](https://learn.microsoft.com/en-us/windows/wsl/)
 [![Shell](https://img.shields.io/badge/🐟-Fish%20Shell-4C9141?logo=fish)](https://fishshell.com/)
