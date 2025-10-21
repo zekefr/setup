@@ -10,6 +10,9 @@ setup_standard_packages:
   - wget
   - jq
   - ftp
+  - dnsutils
+  - ripgrep
+  - fd-find
 
 setup_fish_packages_required:
   - ca-certificates
