@@ -26,6 +26,7 @@ setup_fisher_plugins:
   - IlanCosman/tide@v6
   - jethrokuan/z
   - gazorby/fish-exa
+  - jorgebucaran/nvm.fish
 
 setup_docker_required_packages:
   - ca-certificates

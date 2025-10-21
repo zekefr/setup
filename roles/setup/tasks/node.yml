@@ -1,0 +1,17 @@
+---
+# node tasks for setup
+
+- name: Install Node
+  tags:
+    - node
+
+  block:
+
+    - name: Install latest Node.js
+      become: false
+      ansible.builtin.shell: |
+        nvm install latest
+        set --universal nvm_default_version latest
+      changed_when: true
+      args:
+        executable: /usr/bin/fish

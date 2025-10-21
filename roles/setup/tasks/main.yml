@@ -9,7 +9,7 @@
 - name: Include fish shell
   ansible.builtin.include_tasks: fish.yml
   tags:
-    - fish_config
+    - fish
 
 - name: Include docker
   ansible.builtin.include_tasks: docker.yml
@@ -20,3 +20,8 @@
   ansible.builtin.include_tasks: python.yml
   tags:
     - python
+
+- name: Include node
+  ansible.builtin.include_tasks: node.yml
+  tags:
+    - node
