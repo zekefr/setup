@@ -12,12 +12,14 @@
         name: "{{ setup_fish_packages_required }}"
         state: present
         update_cache: true
+      become: true
 
     - name: Fetch fish PPA public key (armored)
       ansible.builtin.get_url:
         url: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x88421E703EDC7AF54967DED473C9FCC9E2BB48DA"
         dest: /usr/share/keyrings/fish-shell-release-4.asc
         mode: "0644"
+      become: true
 
     - name: De-armor fish PPA key to system keyring
       ansible.builtin.command:
@@ -28,6 +30,7 @@
           - --output
           - /usr/share/keyrings/fish-shell-release-4.gpg
           - /usr/share/keyrings/fish-shell-release-4.asc
+      become: true
       args:
         creates: /usr/share/keyrings/fish-shell-release-4.gpg
 
@@ -42,18 +45,21 @@
           Suites: plucky
           Components: main
           Signed-By: /usr/share/keyrings/fish-shell-release-4.gpg
+      become: true
 
     - name: Install apt packages
       ansible.builtin.apt:
         name: "{{ setup_fish_packages }}"
         state: present
         update_cache: true
+      become: true
 
     - name: Download fisher installation script
       ansible.builtin.get_url:
         url: https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish
         dest: /tmp/fisher.fish
         mode: '0755'
+      become: true
 
     - name: Install fisher plugin manager
       ansible.builtin.shell: |

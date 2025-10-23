@@ -1,7 +1,7 @@
 [project]
 name = "setup"
 version = "0.1.0"
-description = "Ansible for setup repositorie"
+description = "Ansible for setup repository"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [

@@ -2,6 +2,7 @@
 # docker tasks for setup
 
 - name: Install docker
+  become: true
   tags:
     - docker
 

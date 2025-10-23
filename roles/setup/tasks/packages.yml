@@ -6,5 +6,6 @@
     name: "{{ setup_standard_packages }}"
     state: present
     update_cache: true
+  become: true
   tags:
     - packages

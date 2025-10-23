@@ -2,13 +2,13 @@
 # node tasks for setup
 
 - name: Install Node
+  become: false
   tags:
     - node
 
   block:
 
     - name: Install latest Node.js
-      become: false
       ansible.builtin.shell: |
         nvm install latest
         set --universal nvm_default_version latest
@@ -17,7 +17,6 @@
         executable: /usr/bin/fish
 
     - name: Install npm packages
-      become: false
       community.general.npm:
         name: "{{ item }}"
         global: true
