@@ -15,3 +15,11 @@
       changed_when: true
       args:
         executable: /usr/bin/fish
+
+    - name: Install npm packages
+      become: false
+      community.general.npm:
+        name: "{{ item }}"
+        global: true
+        state: latest
+      loop: "{{ setup_npm_packages }}"

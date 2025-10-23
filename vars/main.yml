@@ -42,3 +42,6 @@ setup_docker_packages:
   - docker-ce
   - docker-ce-cli
   - containerd.io
+
+setup_npm_packages:
+  - '@openai/codex'
