@@ -2,17 +2,8 @@
 # fish shell tasks for setup
 
 - name: Configure Fish
-  tags:
-    - fish
 
   block:
-
-    - name: Ensure prerequisites for fish setup
-      ansible.builtin.apt:
-        name: "{{ setup_fish_packages_required }}"
-        state: present
-        update_cache: true
-      become: true
 
     - name: Fetch fish PPA public key (armored)
       ansible.builtin.get_url:
@@ -65,7 +56,6 @@
       ansible.builtin.shell: |
         source /tmp/fisher.fish
         fisher install jorgebucaran/fisher
-      become: false
       changed_when: true
       args:
         executable: /usr/bin/fish
@@ -73,7 +63,6 @@
     - name: Install fish plugins
       ansible.builtin.shell: fish -c "fisher install {{ item }}"
       loop: "{{ setup_fisher_plugins }}"
-      become: false
       changed_when: true
       args:
         executable: /usr/bin/fish
@@ -83,7 +72,6 @@
         tide configure --auto --style=Rainbow --prompt_colors='16 colors' --show_time='24-hour format' \
         --rainbow_prompt_separators=Vertical --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat \
         --powerline_prompt_style='One line' --prompt_spacing=Sparse --icons='Many icons' --transient=No
-      become: false
       changed_when: true
       args:
         executable: /usr/bin/fish

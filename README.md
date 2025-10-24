@@ -78,31 +78,14 @@ If your `sudo` requires a password, either:
 ansible-playbook setup.yml --ask-become-pass
 ```
 
-You can also run only specific parts of the setup using **--tags**.
-
-Available tags:
-- `packages`
-- `fish`
-- `docker`
-- `python`
-- `node`
-
-For example, to only install packages:
-
-```bash
-ansible-playbook setup.yml --tags packages
-```
-
 ---
 
 ## 📦 What’s Installed and Configured
 This Ansible setup will automatically install and configure the following:
 
-- **Linux packages**
-  Essential tools and utilities to get your environment ready.
+- **Linux packages** : Essential tools and utilities.
 
-- **Fish shell with tide and plugins**
-  Preferred interactive shell with useful plugins via Fisher.
+- **Fish shell with tide and plugins**: Preferred interactive shell with useful plugins via Fisher.
   - [fish shell](https://github.com/fish-shell/fish-shell)
   - [fisher](https://github.com/jorgebucaran/fisher) - Plugin manager for fish
   - [tide](https://github.com/IlanCosman/tide) - Prompt fish theme
@@ -110,11 +93,10 @@ This Ansible setup will automatically install and configure the following:
   - [eza](https://github.com/eza-community/eza) with [fish-exa](https://github.com/gazorby/fish-exa) - Modern ls replacement
   - [nvm](https://github.com/jorgebucaran/nvm.fish) - Node version manager for fish
 
-- **Docker**
-  Standard docker installation ready to go.
+- **Docker**: Standard docker installation.
 
-- **Python**
-  Python and pip packages.
+- **Node**: Node and npm packages.
 
-- **Node**
-  Node and npm packages.
+- **LazyVim IDE**: Preffered IDE based on NeoVim.
+  - [LazyVim](https://www.lazyvim.org/) - NeoVim transformation into a full-fledged IDE.
+  - [NeoVim](https://github.com/neovim/neovim) - Refactor of VIM with modern GUI with extensibility.

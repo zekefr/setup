@@ -3,16 +3,8 @@
 
 - name: Install docker
   become: true
-  tags:
-    - docker
 
   block:
-
-    - name: Install apt required packages
-      ansible.builtin.apt:
-        name: "{{ setup_docker_required_packages }}"
-        state: present
-        update_cache: true
 
     - name: Add docker gpg key
       ansible.builtin.get_url:

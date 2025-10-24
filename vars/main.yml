@@ -13,13 +13,19 @@ setup_standard_packages:
   - dnsutils
   - ripgrep
   - fd-find
-
-setup_fish_packages_required:
+  - build-essential
+  - python3-pip
+  - python3-venv
+  - pipx
+  - libreadline-dev
+  - libncurses5-dev
   - ca-certificates
   - gnupg
   - dirmngr
   - curl
   - software-properties-common
+  - apt-transport-https
+  - fzf
 
 setup_fish_packages:
   - fish
@@ -31,13 +37,6 @@ setup_fisher_plugins:
   - gazorby/fish-exa
   - jorgebucaran/nvm.fish
 
-setup_docker_required_packages:
-  - ca-certificates
-  - curl
-  - apt-transport-https
-  - gnupg
-  - software-properties-common
-
 setup_docker_packages:
   - docker-ce
   - docker-ce-cli
@@ -45,3 +44,4 @@ setup_docker_packages:
 
 setup_npm_packages:
   - '@openai/codex'
+  - '@ast-grep/cli'

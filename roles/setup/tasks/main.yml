@@ -1,27 +1,17 @@
 ---
 # main tasks for setup
 
-- name: Include standard packages
+- name: Include apt packages
   ansible.builtin.include_tasks: packages.yml
-  tags:
-    - packages
 
 - name: Include fish shell
   ansible.builtin.include_tasks: fish.yml
-  tags:
-    - fish
 
 - name: Include docker
   ansible.builtin.include_tasks: docker.yml
-  tags:
-    - docker
-
-- name: Include python
-  ansible.builtin.include_tasks: python.yml
-  tags:
-    - python
 
 - name: Include node
   ansible.builtin.include_tasks: node.yml
-  tags:
-    - node
+
+- name: Include lazy vim
+  ansible.builtin.include_tasks: lazy.yml

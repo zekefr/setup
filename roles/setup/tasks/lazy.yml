@@ -1,0 +1,80 @@
+---
+# lazy vim tasks for setup
+
+- name: Install LazyVim
+  vars:
+    home: "{{ lookup('env', 'HOME') }}"
+    lazy_rocks_root: "{{ home }}/.local/share/nvim/lazy-rocks"
+    hererocks_env: "{{ lazy_rocks_root }}/hererocks"
+    hererocks_bin: "{{ home }}/.local/bin/hererocks"
+    luarocks_bin: "{{ hererocks_env }}/bin/luarocks"
+    lua_bin: "{{ hererocks_env }}/bin/lua"
+
+  block:
+
+    - name: Install Neovim latest App image
+      ansible.builtin.get_url:
+        url: "https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage"
+        dest: "/usr/local/bin/nvim"
+        mode: "0755"
+        force: true
+      become: true
+
+    - name: Clone LazyVim starter
+      ansible.builtin.git:
+        repo: "https://github.com/LazyVim/starter"
+        dest: "{{ home }}/.config/nvim"
+        version: "HEAD"
+        depth: 1
+        update: true
+
+    - name: Install hererocks
+      environment:
+        VIRTUAL_ENV: ""
+        UV_ACTIVE: "0"
+        PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:{{ home }}/.local/bin"
+        PIP_DISABLE_PIP_VERSION_CHECK: "1"
+        PIP_ROOT_USER_ACTION: "ignore"
+      ansible.builtin.command: pipx install --python /usr/bin/python3 hererocks
+      args:
+        creates: "{{ hererocks_bin }}"
+
+    - name: Bootstrap Lua 5.1 + LuaRocks into Lazy’s folder
+      environment:
+        PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:{{ home }}/.local/bin"
+        MAKEFLAGS: "-j{{ ansible_processor_vcpus | default(2) }}"
+      ansible.builtin.command: "{{ hererocks_bin }} {{ hererocks_env }} -l5.1 -rlatest --verbose"
+      args:
+        creates: "{{ luarocks_bin }}"
+
+    - name: Get LazyGit latest release metadata
+      ansible.builtin.uri:
+        url: "https://api.github.com/repos/jesseduffield/lazygit/releases/latest"
+        return_content: true
+      register: setup_lazygit_release
+
+    - name: Extract version number
+      ansible.builtin.set_fact:
+        setup_lazygit_version: "{{ (setup_lazygit_release.json.tag_name | default('v0.0.0')) | regex_replace('^v', '') }}"
+
+    - name: Download LazyGit tarball
+      ansible.builtin.get_url:
+        url: "https://github.com/jesseduffield/lazygit/releases/download/v{{ setup_lazygit_version }}/lazygit_{{ setup_lazygit_version }}_Linux_x86_64.tar.gz"
+        dest: "/tmp/lazygit.tar.gz"
+        mode: "0644"
+        force: true
+
+    - name: Extract LazyGit binary
+      ansible.builtin.unarchive:
+        src: "/tmp/lazygit.tar.gz"
+        dest: "/tmp"
+        remote_src: true
+        extra_opts:
+          - "lazygit"
+
+    - name: Install LazyGit
+      ansible.builtin.copy:
+        src: "/tmp/lazygit"
+        dest: "/usr/local/bin/lazygit"
+        mode: "0755"
+      become: true

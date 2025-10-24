@@ -7,5 +7,3 @@
     state: present
     update_cache: true
   become: true
-  tags:
-    - packages
