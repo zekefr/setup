@@ -97,7 +97,7 @@ This Ansible setup will automatically install and configure the following:
   - [docker](https://www.docker.com/)
 
 - **K3D**: Lightweight Kubernetes distribution.
-  - [k3s](https://github.com/k3d-io/k3d)
+  - [k3d](https://github.com/k3d-io/k3d)
   - [kubectl](https://kubernetes.io/fr/docs/reference/kubectl/)
 
 - **Node**: Node and npm packages.
