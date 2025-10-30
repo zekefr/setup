@@ -1,0 +1,24 @@
+---
+# k3d tasks for setup
+
+- name: Install k3d
+  become: true
+  vars:
+    k3d_version: "v5.8.3"
+
+  block:
+
+    - name: Install k3d
+      ansible.builtin.get_url:
+        url: "https://github.com/k3d-io/k3d/releases/download/{{ k3d_version }}/k3d-linux-amd64"
+        dest: /usr/local/bin/k3d
+        mode: "0755"
+
+    - name: Install latest stable kubectl
+      ansible.builtin.shell: |
+        set -e
+        version="$(curl -Ls https://dl.k8s.io/release/stable.txt)"
+        curl -Lo /usr/local/bin/kubectl "https://dl.k8s.io/release/${version}/bin/linux/amd64/kubectl"
+        chmod +x /usr/local/bin/kubectl
+      args:
+        creates: /usr/local/bin/kubectl

@@ -10,6 +10,9 @@
 - name: Include docker
   ansible.builtin.include_tasks: docker.yml
 
+- name: Include k3d
+  ansible.builtin.include_tasks: k3d.yml
+
 - name: Include node
   ansible.builtin.include_tasks: node.yml
 
