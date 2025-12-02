@@ -42,8 +42,6 @@ This setup uses [Ansible](https://www.ansible.com/) to automate environment conf
 To keep it clean and easily manage multiple Ansible versions, use [UV](https://docs.astral.sh/uv/) inside the cloned repo.
 I am using Python 3.13 (shipped with Ubuntu 25.04) and Ansible 12 (core 2.19).
 
-#### Steps
-
 Clone this repository first:
 
 ```bash
