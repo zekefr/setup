@@ -8,6 +8,12 @@
 
 My personal WSL2 setup as an SRE/DevOps Engineer, automated with **Ansible**.
 
+<img width="1297" height="516" alt="image" src="https://github.com/user-attachments/assets/ef937b9c-244d-459c-aab0-5c70672cf847" />
+
+<img width="1448" height="703" alt="image" src="https://github.com/user-attachments/assets/168542a8-1df9-4810-95e6-f38bb25172b3" />
+
+<img width="1447" height="769" alt="image" src="https://github.com/user-attachments/assets/111c1b32-ef78-4508-9799-a498bb691153" />
+
 ---
 
 ## ✅ Prerequisites
