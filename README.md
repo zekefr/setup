@@ -99,6 +99,7 @@ This Ansible setup will automatically install and configure the following:
 - **K3D**: Lightweight Kubernetes distribution.
   - [k3d](https://github.com/k3d-io/k3d)
   - [kubectl](https://kubernetes.io/fr/docs/reference/kubectl/)
+  - [helm](https://helm.sh/)
 
 - **Node**: Node and npm packages.
   - [node](https://nodejs.org/fr)

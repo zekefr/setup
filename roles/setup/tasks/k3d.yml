@@ -22,3 +22,15 @@
         chmod +x /usr/local/bin/kubectl
       args:
         creates: /usr/local/bin/kubectl
+
+    - name: Install latest stable helm
+      ansible.builtin.shell: |
+        set -euo pipefail
+        version="$(curl -Ls https://get.helm.sh/helm-latest-version)"
+        tmp_dir="$(mktemp -d)"
+        curl -Ls -o "${tmp_dir}/helm.tar.gz" "https://get.helm.sh/helm-${version}-linux-amd64.tar.gz"
+        tar -C "${tmp_dir}" -xzf "${tmp_dir}/helm.tar.gz"
+        install -m 0755 "${tmp_dir}/linux-amd64/helm" /usr/local/bin/helm
+        rm -rf "${tmp_dir}"
+      args:
+        creates: /usr/local/bin/helm
